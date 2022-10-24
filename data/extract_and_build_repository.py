@@ -1,17 +1,22 @@
 import os
+import json
+import sqlite3
 from zipfile import ZipFile
 
-def download_and_extract():
-    kaggle_dir = "./kaggle"
-    kaggle_download = "coleridgeinitiative-show-us-the-data.zip"
+def download_and_extract() -> None:
+    kaggle_dir = "./data/kaggle"
+    kaggle_download = "./data/coleridgeinitiative-show-us-the-data.zip"
 
     assert os.path.exists(kaggle_download), "Please download kaggle data"
 
-    with ZipFile("coleridgeinitiative-show-us-the-data.zip", "r") as zip:
-        zip.extractall("kaggle")
+    with ZipFile(kaggle_download, "r") as zip:
+        zip.extractall(kaggle_dir)
 
 def build_repository():
-    pass
+    con = sqlite3.connect("./data/kaggle_data.db")
+    
+    cur  = con.cursor()
+
 
 def load_repository():
     pass
