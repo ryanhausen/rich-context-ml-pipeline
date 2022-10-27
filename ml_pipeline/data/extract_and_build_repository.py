@@ -8,9 +8,9 @@ from zipfile import ZipFile
 
 from tqdm import tqdm
 
-kaggle_dir = "./ml_pipline/data/kaggle"
-kaggle_download = "./ml_pipline/data/coleridgeinitiative-show-us-the-data.zip"
-database_location = "./ml_pipline/data/dataset.db"
+kaggle_dir = "./ml_pipeline/data/kaggle"
+kaggle_download = "./ml_pipeline/data/coleridgeinitiative-show-us-the-data.zip"
+database_location = "./ml_pipeline/data/dataset.db"
 
 def extract():
     print("Extracting kaggle data")
@@ -53,7 +53,7 @@ def load_repository():
                 document_id = l["Id"]
                 labels.append((next(_id), l["dataset_title"], l["dataset_label"], document_id, -1))
 
-                with open(f"./data/kaggle/train/{document_id}.json", "r") as f:
+                with open(f"./ml_pipeline/data/kaggle/train/{document_id}.json", "r") as f:
                     text = json.dumps(json.load(f)).encode()
 
                 if document_id not in seen_doc:

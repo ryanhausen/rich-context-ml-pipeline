@@ -1,6 +1,6 @@
 *.zip
 *.db
-ml_pipline/data/kaggle
+ml_pipeline/data/kaggle
 
 # Byte-compiled / optimized / DLL files
 __pycache__/
