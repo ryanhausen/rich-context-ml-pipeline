@@ -27,16 +27,14 @@ def main():
         lbl_entities = []
 
         entities = []
-
+        l_idx = 0
         for i, lbl in enumerate(labels, start=1):
-            print(lbl)
-            l_idx = lbl_string.find(lbl)
-            if l_idx!=-1:
-                lbl_entities.append(dict(
-                    entity=f"Dataset {i}",
-                    start=l_idx,
-                    end=l_idx+len(lbl)
-                ))
+            lbl_entities.append(dict(
+                entity=f"Dataset {i}",
+                start=l_idx,
+                end=l_idx+len(lbl)
+            ))
+            l_idx += len(lbl)+1
             idxs = [m.start() for m in re.finditer(lbl, document)]
             for idx in filter(lambda idx: idx!=-1, idxs):
                 entities.append(dict(
