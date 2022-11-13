@@ -8,7 +8,7 @@ def convert_json_to_text(json_text):
     output_text = ""
 
     for section in json_text:
-        output_text += section["section_title"]
+        output_text += section["section_title"] + " "
         output_text += section["text"]
 
     return output_text
